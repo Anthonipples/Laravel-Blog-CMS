@@ -24,9 +24,14 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $title = $request->input('title');
+        $body = $request->input('blogBody');
+        Post::insert([
+            ['title' => $title,'body' => $body]
+        ]);
+        return  ('Done');
     }
 
     /**
